@@ -1,0 +1,335 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Berserker index page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+
+    <style type="text/css">
+
+    .col-heigth{
+        height: 350px;
+      }
+      .bk-img{
+        background-image: url(https://placeimg.com/1000/1000/nature/grayscale) !important;
+        background-size: cover;
+      }
+
+     .ui.sidebar.menu{
+       display: none !important;
+       }
+     .item.dummy{
+        width: 1px !important;
+        padding:0 !important;
+     }
+
+    .ui.card {
+    margin: 1em 0 !important;
+    width: 100% !important;
+    }
+
+    .center-img{
+      display: block;
+      margin: 0 auto;
+    }
+
+    .card-width-100{
+      width: 100% !important;
+    }
+
+    .margin-bottom{
+      margin-top: 1rem !important; 
+      margin-bottom: 0 !important;
+    }
+
+    .margin-top{
+      margin: 0 !important;
+    }
+
+    .img-height{
+      height: 250px !important;
+    }
+
+    .ui.items{
+      margin: 0 !important;
+    }
+
+    #upload{
+    display:none
+    }
+
+    .padding-left{
+     padding-left: 0 !important;
+    }
+
+    .modal-padding{
+      padding: 0.5rem !important;
+    }
+
+    .add-comment{
+      position: absolute !important;
+      bottom: 0 !important;
+      right: 0 !important;
+      left: 0 !important;
+    }
+@media only screen and (max-width: 670px) {
+
+    .ui.pointing.menu{
+         display: none !important;
+      }
+
+      .ui.sidebar.menu{
+       display: -webkit-box !important;
+       }
+
+       .card{
+         width: 150% !important;
+       }
+
+    .ui.modal>.close{
+    cursor: pointer;
+    position: absolute;
+    top: -2.5rem;
+    right: -2.5rem;
+    z-index: 1;
+    opacity: .8;
+    font-size: 1.25em;
+    color: hsl(0, 0%, 100%);
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: .625rem 0 0 0;
+    }
+  }
+
+
+  @media only screen and (max-width: 991px){
+    .ui.modal>.close{
+      top: -2.5rem !important;
+      right: -2.5rem !important;
+      color: hsl(0, 0%, 100%) !important;
+    }
+  }
+
+    </style>
+
+    <script type="text/javascript">
+  $(function(){
+    // file upload
+    $("#upload_link").on('click', function(e){
+        e.preventDefault();
+        $("#upload:hidden").trigger('click');
+    });
+
+    $("#card").on('click', function(e){
+      console.log(e);
+      
+      $('.ui.modal').modal('show');
+    });
+
+});
+
+    </script>
+</head>
+<body>
+<!--<div class="ui attached stackable pointing menu">-->
+<!--<div class="ui container"> <a class="item" href="/mypage" th:href="@{/mypage}">-->
+<!--<i class="home icon"></i> 홈-->
+<!--</a> <a class="item" href="/gallery" th:href="@{/gallery}">-->
+<!--<i class="photo icon"></i> 갤러리-->
+<!--</a> <a class="item" href="/message" th:href="@{/message}">-->
+<!--<i class="list icon"></i> Messages-->
+<!--</a> <a class="item active" href="/profile" th:href="@{/profile}">-->
+<!--<i class="user icon"></i>프로필-->
+<!--</a> <a class="item right floated" href="/logout">-->
+<!--<i class="sign out alternate icon"></i> 로그아웃-->
+<!--</a>-->
+<!--<div class="item dummy"></div>-->
+<!--</div>-->
+<!--</div>-->
+<div class="ui attached stackable pointing menu" th:include="common/header :: common_header"></div>
+
+
+<!-- profile -->
+<div class="ui secondary segment col-heigth bk-img margin-bottom ">
+    <div class="ui middle aligned center aligned grid col-heigth">
+        <div class="ui column centered aligned grid">
+            <input id="upload" type="file"/>
+            <a href="/" id="upload_link">
+                <div class="image">
+                    <img class="ui center small circular image center-img" src="https://placeimg.com/150/150/any">
+                </div>
+            </a>
+            <div>
+                <button class="ui inverted blue button">
+                    <i class="large edit sign icon"></i>
+                    프로필
+                </button>
+            </div>
+            <p>자기소개 </p>
+        </div>
+    </div>
+</div>
+</div>
+<!-- card list -->
+<div class="ui secondary segment margin-top">
+    <div class="ui container">
+        <div class="ui link cards">
+            <div class="card" id="card">
+                <div class="image">
+                    <img class="img-height card-width-100" src="https://placeimg.com/250/300/any">
+                </div>
+                <div class="content">
+                     <span class="right floated">
+                      <i class="heart outline like icon"></i>
+                        17 likes
+                      </span>
+                    <i class="comment icon"></i> 3 comments
+                </div>
+            </div>
+            <div class="card" id="card">
+                <div class="image">
+                    <img class="img-height card-width-100" src="https://placeimg.com/250/300/any">
+                </div>
+                <div class="content">
+                       <span class="right floated">
+                        <i class="heart outline like icon"></i>
+                          17 likes
+                        </span>
+                    <i class="comment icon"></i> 3 comments
+                </div>
+            </div>
+            <div class="card" id="card">
+                <div class="image">
+                    <img class="img-height" src="https://placeimg.com/250/300/any">
+                </div>
+                <div class="content">
+                         <span class="right floated">
+                          <i class="heart outline like icon"></i>
+                            17 likes
+                          </span>
+                    <i class="comment icon"></i> 3 comments
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="ui bottom demo inverted four item labeled icon sidebar menu push overlay visible"><a
+        class="active grey item" href="/mypage" th:href="@{/mypage}">
+    <i class="home icon"></i>
+    홈
+</a> <a class="item" href="/gallery" th:href="@{/gallery}">
+    <i class="photo icon"></i>
+    갤러리
+</a> <a class="item" href="/message" th:href="@{/message}">
+    <i class="smile icon"></i>
+    Messages
+</a> <a class="item" href="/profile" th:href="@{/profile}">
+    <i class="user icon"></i>
+    프로필
+</a>
+</div>
+
+<div class="ui modal">
+    <i class="close icon"></i>
+    <div class="ui relaxed divided items container">
+        <div class="item">
+            <div class="ui large image">
+                <img src="https://placeimg.com/250/300/any">
+            </div>
+            <div class="extra content">
+
+
+                <div class="ui threaded comments">
+                    <div class="comment">
+                        <a class="avatar">
+                            <img src="https://placeimg.com/250/220/any">
+                        </a>
+                        <div class="content">
+                            <a class="author">Matt</a>
+                            <div class="metadata">
+                                <span class="date">Today at 5:42PM</span>
+                            </div>
+                            <div class="text">
+                                How artistic!
+                            </div>
+                            <div class="actions">
+                                <a class="reply">Reply</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <a class="avatar">
+                            <img src="https://placeimg.com/250/220/any">
+                        </a>
+                        <div class="content">
+                            <a class="author">Elliot Fu</a>
+                            <div class="metadata">
+                                <span class="date">Yesterday at 12:30AM</span>
+                            </div>
+                            <div class="text">
+                                <p>This has been very useful for my research. Thanks as well!</p>
+                            </div>
+                            <div class="actions">
+                                <a class="reply">Reply</a>
+                            </div>
+                        </div>
+                        <div class="comments">
+                            <div class="comment">
+                                <a class="avatar">
+                                    <img src="https://placeimg.com/250/220/any">
+                                </a>
+                                <div class="content">
+                                    <a class="author">Jenny Hess</a>
+                                    <div class="metadata">
+                                        <span class="date">Just now</span>
+                                    </div>
+                                    <div class="text">
+                                        Elliot you are always so right :)
+                                    </div>
+                                    <div class="actions">
+                                        <a class="reply">Reply</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <a class="avatar">
+                            <img src="https://placeimg.com/250/220/any">
+                        </a>
+                        <div class="content">
+                            <a class="author">Joe Henderson</a>
+                            <div class="metadata">
+                                <span class="date">5 days ago</span>
+                            </div>
+                            <div class="text">
+                                Dude, this is awesome. Thanks so much
+                            </div>
+                            <div class="actions">
+                                <a class="reply">Reply</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<!-- <div class="scrolling content">
+    <div class="image">
+        <img class="img-height card-width-100" src="https://placeimg.com/250/300/any">
+    </div>
+</div> -->
+
+
+</div>
+
+</body>
+</html>

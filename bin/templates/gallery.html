@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Berserker index page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.1/masonry.pkgd.min.js"></script>
+
+    <style type="text/css">
+    .ui.sidebar.menu{
+       display: none !important;
+       }
+     .item.dummy{
+        width: 1px !important;
+        padding:0 !important;
+     }
+
+     .ui.card {
+    margin: 1em 0 !important;
+    width: 200px !important;
+    }
+
+    .card-top{
+      width: 100% !important;
+    }
+@media only screen and (max-width: 670px) {
+
+    .ui.pointing.menu{
+         display: none !important;
+      }
+
+      .ui.sidebar.menu{
+       display: -webkit-box !important;
+       }
+
+       .ui.card{
+         width: 150% !important;
+       }
+
+    .ui.segment{
+      margin: 0 !important;
+    }
+  }
+
+    </style>
+    <script type="text/javascript">
+    $(document).ready(function () {
+        var $grid = $('#masonryGrid')
+        if ( $('html').width() < 480 ) {
+          $grid.masonry('destroy');
+        } else {
+            $grid.masonry({
+              // options...
+              itemSelector: '.ui.card',
+              gutter: 50,
+              isFitWidth: true,
+              columnWidth: 1,
+              isInitLayout: false
+      });
+        }
+    
+   });
+
+    </script>
+</head>
+<body>
+<!--<div class="ui attached stackable pointing menu">-->
+<!--<div class="ui container"> <a class="item" href="/mypage" th:href="@{/mypage}">-->
+<!--<i class="home icon"></i> 홈-->
+<!--</a> <a class="item active" href="/gallery" th:href="@{/gallery}">-->
+<!--<i class="photo icon"></i> 갤러리-->
+<!--</a> <a class="item" href="/message" th:href="@{/message}">-->
+<!--<i class="list icon"></i> Messages-->
+<!--</a> <a class="item" href="/profile" th:href="@{/profile}">-->
+<!--<i class="user icon"></i>프로필-->
+<!--</a> <a class="item right floated" href="/logout">-->
+<!--<i class="sign out alternate icon"></i> 로그아웃-->
+<!--</a>-->
+<!--<div class="item dummy"></div>-->
+<!--</div>-->
+<!--</div>-->
+
+<div class="ui attached stackable pointing menu" th:include="common/header :: common_header"></div>
+
+<!-- card list -->
+<div class="ui secondary segment margin-top">
+    <div class="ui container">
+        <div class="ui link four doubling cards">
+            <div class="card">
+                <div class="image">
+                    <img class="img-height" src="https://placeimg.com/250/300/any">
+                </div>
+                <div class="content">
+                     <span class="right floated">
+                      <i class="heart outline like icon"></i>
+                        17
+                      </span>
+                    <i class="comment icon"></i> 3
+                </div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img class="img-height" src="https://placeimg.com/250/300/any">
+                </div>
+                <div class="content">
+                       <span class="right floated">
+                        <i class="heart outline like icon"></i>
+                          17
+                        </span>
+                    <i class="comment icon"></i> 3
+                </div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img class="img-height" src="https://placeimg.com/250/300/any">
+                </div>
+                <div class="content">
+                         <span class="right floated">
+                          <i class="heart outline like icon"></i>
+                            17
+                          </span>
+                    <i class="comment icon"></i> 3
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="ui bottom demo inverted four item labeled icon sidebar menu push overlay visible"><a
+        class="active grey item" href="/mypage" th:href="@{/mypage}">
+    <i class="home icon"></i>
+    홈
+</a> <a class="item" href="/gallery" th:href="@{/gallery}">
+    <i class="photo icon"></i>
+    갤러리
+</a> <a class="item" href="/message" th:href="@{/message}">
+    <i class="smile icon"></i>
+    Messages
+</a> <a class="item" href="/profile" th:href="@{/profile}">
+    <i class="user icon"></i>
+    프로필
+</a></div>
+</body>
+</html>

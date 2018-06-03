@@ -1,0 +1,60 @@
+.button {
+    background-color: transparent !important;
+    border: 2px solid #fff !important;
+    color: #fff !important;
+}
+.button:hover {
+    background-color: rgba(255, 255, 255, .2);
+}
+
+form {
+    position: relative;
+    margin: 0 auto;
+    background: rgba(130,130,130,.3);
+    padding: 20px 22px;
+    border: 1px solid;
+    border-top-color: rgba(255,255,255,.4);
+    border-left-color: rgba(255,255,255,.4);
+    border-bottom-color: rgba(60,60,60,.4);
+    border-right-color: rgba(60,60,60,.4);
+}
+
+
+.uk-input{
+background-color:hsla(0, 4%, 50%, 0.5) !important
+}
+
+.uk-input::-webkit-input-placeholder {
+    color: #f8f8f896!important;
+    font-weight: normal !important;
+}
+.uk-input:-ms-input-placeholder {
+    color: #f8f8f896;
+    font-weight: normal;
+}
+.uk-input::-moz-placeholder {
+    color: #f8f8f896;
+    font-weight: normal;
+}
+
+.uk-form-icon{
+color:hsl(0, 100%, 100%);
+}
+
+.uk-link-muted{
+    color: hsl(0, 0%, 100%) !important;
+}
+
+
+.ui.label{
+    color: rgba(255, 0, 0, 0.6) !important;
+}
+
+.full-circle.ui.animated.button .hidden.content {
+  line-height: 100%;
+}
+
+.centered{
+  text-align: -webkit-center;
+}
+

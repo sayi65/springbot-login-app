@@ -80,7 +80,7 @@ appengine {  // App Engine tasks configuration
         stopPreviousVersion = true  // default - stop the current version
         promote = true
         version = 'v1'
-        project = 'schedule-162313'
+        project = '********'
     }
 }
 
