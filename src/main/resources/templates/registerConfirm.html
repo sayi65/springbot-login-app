@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Berserker index page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.js"></script>
+    <script src="/js/register.js" type="text/javascript" th:src="@{/js/register.js}"></script>
+
+    <style type="text/css">
+    .ui.secondary.segment{
+        height: 100vh;
+    }
+    .center-img{
+      display: block;
+      margin: 0 auto;
+      height: 150px !important;
+    }
+    .ui.fluid.input{
+        width: 50%;
+        margin: auto;
+        margin-top: 3%; 
+    }
+
+    .ui-button{
+    margin: auto !important;
+    padding: 1rem 4.5rem !important;
+    }
+
+    #upload{
+    display:none
+    }
+
+    @media only screen and (max-width: 670px) {
+        .ui.fluid.input{
+        width: 100%;
+        margin: auto;
+        margin-top: 3%; 
+    }
+
+    }
+    </style>
+</head>
+<body>
+
+<form id="userRegister" enctype="multipart/form-data" th:action="@{/registerConfirm}" method="post" th:obeject="${userRegister}">
+
+    <div class="ui secondary segment">
+        <div class="ui container">
+
+            
+            <div class="ui middle aligned center aligned">
+                <div class="column">
+                    <input name="avatar" id="upload" type="file" onchange="handleFiles(this.files)" accept="image/*"/>
+                    <a href="javascript:void(0)" id="changeAvatar">
+                            <img class="ui small circular image center-img" src="https://placeimg.com/250/220/any" id="avatar">
+                    </a>
+                </div>
+            </div>
+
+            <div class="ui stacked segment">
+                <div class="ui fluid left corner labeled input">
+                    <input type="text" id="nickname" name="nickname" maxlength="100" placeholder="닉네임">
+                        <div class="ui left corner label">
+                            <i class="red asterisk icon"></i>
+                        </div>
+                </div>
+                
+                <div class="ui fluid left corner labeled input">
+                        <div class="ui selection dropdown fluid" id="sex">
+                                <input type="hidden" name="sex">
+                                <i class="dropdown icon"></i>
+                                <span class="default text">성별</span>
+                                <div class="menu">
+                                    <div class="item" data-value="1" data-text="남">
+                                        <i class="male icon"></i>
+                                        남
+                                    </div>
+                                    <div class="item" data-value="2" data-text="여">
+                                        <i class="female icon"></i>
+                                        여
+                                    </div>
+                                </div>
+                        </div>
+                </div> 
+
+                <div class="ui fluid left corner labeled input">
+                        <div class="ui selection dropdown fluid" id="age">
+                                <input type="hidden" name="age">
+                                <i class="dropdown icon"></i>
+                                <span class="default text">나이</span>
+                                <div class="menu">
+                                    <div class="item" data-value="1" data-text="10대">
+                                        <i class="male icon"></i>
+                                        10대
+                                    </div>
+                                    <div class="item" data-value="2" data-text="20대초">
+                                        <i class="female icon"></i>
+                                        20대초
+                                    </div>
+                                    <div class="item" data-value="3" data-text="20대후">
+                                        <i class="female icon"></i>
+                                        20대후
+                                    </div>
+                                    <div class="item" data-value="4" data-text="30대초">
+                                        <i class="female icon"></i>
+                                        30대초
+                                    </div>
+                                    <div class="item" data-value="5" data-text="30대후">
+                                        <i class="female icon"></i>
+                                        30대후
+                                    </div>
+                                    <div class="item" data-value="6" data-text="40대초">
+                                        <i class="female icon"></i>
+                                        40대초
+                                    </div>
+                                    <div class="item" data-value="7" data-text="40대후">
+                                        <i class="female icon"></i>
+                                        40대후
+                                    </div>
+                                </div>
+                            </div>
+                </div> 
+
+
+                <div class="ui fluid left corner labeled input form">
+                    <textarea rows="3" name="introduction" placeholder="자기소개"></textarea>    
+                </div>
+
+                <div class="ui fluid left corner labeled input form">
+                    <button id="upload_chat_button" class="ui inverted blue button ui-button">
+                            저장
+                        </button>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</form>
+
+</body>
+</html>

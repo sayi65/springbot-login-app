@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Berserker index page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/css/uikit.min.css">
+    <link href="/css/landing.css" th:href="@{/css/landing.css}" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit-icons.min.js"></script>
+</head>
+<body>
+
+
+<div class="uk-section-default">
+    <div class="uk-section uk-light uk-background-cover"
+         style="height:100vh;background-image: url(images/winter-2910818.jpg)">
+
+        <div class="uk-inline uk-margin">
+            <a href="/login" th:href="@{/login}" class="uk-position-small uk-position-top-left uk-overlay uk-light"
+               uk-slidenav-previous></a>
+        </div>
+
+        <div class="uk-container uk-position-center">
+            <form th:action="@{/register}" method="post" th:object="${user}" class="uk-width-*@m">
+
+                <div class="uk-margin">
+                    <div class="uk-position-relative">
+                        <span class="uk-form-icon" uk-icon="icon: user"></span>
+                        <input name="username" class="uk-input" type="username" placeholder="아이디">
+                    </div>
+                </div>
+
+                <div class="uk-margin">
+                    <div class="uk-position-relative">
+                        <span class="uk-form-icon" uk-icon="icon: user"></span>
+                        <input name="email" class="uk-input" type="email" placeholder="이메일">
+                    </div>
+                </div>
+
+                <div class="uk-margin">
+                    <div class="uk-position-relative">
+                        <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                        <input name="password" class="uk-input" type="password" placeholder="비밀번호">
+                    </div>
+                </div>
+
+                <div class="uk-margin">
+                    <div class="uk-position-relative">
+                        <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                        <input name="confirmPassword" class="uk-input" type="password" placeholder="비밀번호확인">
+                    </div>
+                </div>
+
+                <div class="uk-margin">
+                    <button type="submit" name="action" value="login"
+                            class="button uk-width-medium uk-button-small uk-button">회원가입
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

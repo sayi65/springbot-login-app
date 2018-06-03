@@ -1,0 +1,236 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Berserker index page</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+
+    <style type="text/css">
+
+     .ui.sidebar.menu{
+       display: none !important;
+       }
+     .item.dummy{
+        width: 1px !important;
+        padding:0 !important;
+     }
+
+    @media only screen and (max-width: 700px) {
+
+      .ui.pointing.menu{
+         display: none !important;
+      }
+
+      .ui.sidebar.menu{
+       display: -webkit-box !important;
+       }
+
+    }
+
+
+    </style>
+
+    <script type="text/javascript">
+
+     $(function(){
+        $('.ui.cards .image').dimmer({
+          on: 'hover'
+        });
+
+        $('#upload_chat_button').click(function(){
+        $('#upload_chat').click();
+            return false;
+        });
+    });
+
+    
+    </script>
+</head>
+<body>
+
+<div class="ui attached stackable pointing menu" th:include="common/header :: common_header"></div>
+<!--<div class="ui attached stackable pointing menu">-->
+    <!--<div class="ui container">-->
+        <!--<a class="item active" href="/mypage" th:href="@{/mypage}">-->
+            <!--<i class="home icon"></i> 홈-->
+        <!--</a>-->
+        <!--<a class="item" href="/gallery" th:href="@{/gallery}">-->
+            <!--<i class="photo icon"></i> 사진-->
+        <!--</a>-->
+        <!--<a class="item">-->
+            <!--<i class="list icon"></i> Messages-->
+        <!--</a>-->
+        <!--<a class="item">-->
+            <!--<i class="user icon"></i>프로필-->
+        <!--</a>-->
+        <!--<a class="item right floated" href="/logout">-->
+            <!--<i class="sign out alternate icon"></i> 로그아웃-->
+        <!--</a>-->
+        <!--<div class="item dummy"></div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<div class="ui secondary segment">
+    <div class="ui container">
+        <div class="ui form">
+            <div class="field">
+                <textarea placeholder="지금머해요?" rows="2"></textarea>
+            </div>
+            <span os-file-upload="" max-size="1024" pic-info="true" multiple="true" callback="ctrl.addPicture"
+                  ng-model="ctrl.url" accept="image/jpg, image/png, image/jpeg, image/pjpeg, image/x-png"
+                  get-qiniu-callback="ctrl.getQiniuConfig" size-error-message="图片大小应小于1M"
+                  type-error-message="仅支持JPG/PNG格式">
+                  <input type="file" id="upload_chat" name="file" style="display:none"></input>
+                <button id="upload_chat_button" class="ui inverted blue button">
+                    <i class="large camera retro icon"></i>
+                    사진/영상추가
+                </button>
+            </span>
+
+
+            <button class="ui right floated primary button">
+                Save
+            </button>
+
+        </div>
+
+    </div>
+</div>
+
+
+<!-- card list -->
+<div class="ui container">
+    <div class="ui centered fluid card">
+        <div class="content">
+            <div class="right floated meta">14h</div>
+            <img class="left floated ui avatar image" src="https://placeimg.com/250/220/any">
+            <div class="header">Elliot</div>
+            <div class="meta">
+                Friends of Veronika
+            </div>
+        </div>
+        <div class="image">
+            <img class="ui large image" src="https://placeimg.com/250/220/any">
+        </div>
+
+        <div class="content">
+        <span class="right floated">
+          <i class="heart outline like icon"></i>
+          17
+        </span>
+            <i class="comment icon"></i>
+            4
+        </div>
+        <div class="extra content">
+
+
+            <div class="ui threaded comments">
+                <div class="comment">
+                    <a class="avatar">
+                        <img src="https://placeimg.com/250/220/any">
+                    </a>
+                    <div class="content">
+                        <a class="author">Matt</a>
+                        <div class="metadata">
+                            <span class="date">Today at 5:42PM</span>
+                        </div>
+                        <div class="text">
+                            How artistic!
+                        </div>
+                        <div class="actions">
+                            <a class="reply">Reply</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <a class="avatar">
+                        <img src="https://placeimg.com/250/220/any">
+                    </a>
+                    <div class="content">
+                        <a class="author">Elliot Fu</a>
+                        <div class="metadata">
+                            <span class="date">Yesterday at 12:30AM</span>
+                        </div>
+                        <div class="text">
+                            <p>This has been very useful for my research. Thanks as well!</p>
+                        </div>
+                        <div class="actions">
+                            <a class="reply">Reply</a>
+                        </div>
+                    </div>
+                    <div class="comments">
+                        <div class="comment">
+                            <a class="avatar">
+                                <img src="https://placeimg.com/250/220/any">
+                            </a>
+                            <div class="content">
+                                <a class="author">Jenny Hess</a>
+                                <div class="metadata">
+                                    <span class="date">Just now</span>
+                                </div>
+                                <div class="text">
+                                    Elliot you are always so right :)
+                                </div>
+                                <div class="actions">
+                                    <a class="reply">Reply</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <a class="avatar">
+                        <img src="https://placeimg.com/250/220/any">
+                    </a>
+                    <div class="content">
+                        <a class="author">Joe Henderson</a>
+                        <div class="metadata">
+                            <span class="date">5 days ago</span>
+                        </div>
+                        <div class="text">
+                            Dude, this is awesome. Thanks so much
+                        </div>
+                        <div class="actions">
+                            <a class="reply">Reply</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="ui large transparent left icon input">
+                <i class="heart outline icon"></i>
+                <input type="text" placeholder="Add Comment...">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="ui bottom demo inverted four item labeled icon sidebar menu push overlay visible">
+        <a class="active grey item">
+            <i class="home icon"></i>
+            홈
+        </a>
+        <a class="item">
+            <i class="photo icon"></i>
+            사진
+        </a>
+        <a class="item">
+            <i class="smile icon"></i>
+            메세지
+        </a>
+        <a class="item">
+            <i class="user icon"></i>
+            프로필
+        </a>
+    </div>
+
+</div>
+</body>
+</html>
